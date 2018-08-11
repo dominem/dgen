@@ -1,10 +1,31 @@
 import click
 
 
-@click.command()
-@click.option('--as-cowboy', '-c', is_flag=True, help='Greet as a cowboy.')
-@click.argument('name', default='world', required=False)
-def main(name, as_cowboy):
+@click.group()
+def main():
     """Command-line utility for Django code generation."""
-    greet = 'Howdy' if as_cowboy else 'Hello'
-    click.echo('{0}, {1}.'.format(greet, name))
+    pass
+
+
+@main.command(short_help='Generate common templates.')
+@click.argument('directory')
+def templates(directory):
+    """
+    Generate templates for common Index and CRUD Class-Based Views.
+
+    \b
+    Includes:
+        - base.html
+        - index.html
+        - list.html
+        - form.html
+        - confirm_delete.html
+        - breadcrumb.html
+
+    \b
+    WARNING:
+    Please, note that the command will overwrite files
+    in the given DIRECTORY if such files already exist.
+    If this is the case, make sure that you have a backup.
+    """
+    click.echo(f'Templates generated into {directory} directory.')
