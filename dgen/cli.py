@@ -1,4 +1,5 @@
 import click
+from . import commands
 
 
 @click.group()
@@ -28,4 +29,4 @@ def templates(directory):
     in the given DIRECTORY if such files already exist.
     If this is the case, make sure that you have a backup.
     """
-    click.echo(f'Templates generated into {directory} directory.')
+    commands.templates(directory)
