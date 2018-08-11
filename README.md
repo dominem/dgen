@@ -1,2 +1,11 @@
 # dgen
-Command-line utils for Django code generation
+
+Command-line utility for Django code generation.
+
+
+# Usage
+
+To use it:
+
+    $ dgen --help
+
