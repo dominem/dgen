@@ -12,7 +12,7 @@ setup(
     name='dgen',
     version='0.1.0',
     url='https://github.com/dominem/dgen',
-    license='BSD',
+    license='MIT',
     author='Dominik Magdaleński',
     author_email='dominik.magdalenski@gmail.com',
     description='Command-line utility for Django code generation.',
