@@ -8,11 +8,11 @@ def main():
     pass
 
 
-@main.command(short_help='Generate common templates.')
+@main.command(short_help='Generate CMS-like templates.')
 @click.argument('directory')
 def templates(directory):
     """
-    Generate templates for common Index and CRUD Class-Based Views.
+    Generate CMS-like generic templates for Index and CRUD Class-Based Views.
 
     \b
     Includes:
