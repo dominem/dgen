@@ -3,7 +3,10 @@ Command-line utility for Django code generation.
 """
 from setuptools import find_packages, setup
 
-dependencies = ['click']
+dependencies = [
+    'click',
+    'Jinja2',
+]
 
 setup(
     name='dgen',
