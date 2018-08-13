@@ -5,6 +5,7 @@ from . import settings
 
 class TempDir(object):
     def __init__(self, dirname):
+        self.dirname = dirname
         self.parent = os.getcwd()
         self.path = os.path.join(self.parent, dirname)
 

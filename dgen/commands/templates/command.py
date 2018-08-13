@@ -9,12 +9,14 @@ jinja.env.loader = PackageLoader(package_name=__package__)
 
 
 def templates(directory):
+    tempdir.make()
     context = {'title': 'dgen'}
     template_names = jinja.env.list_templates()
     generate(template_names, context)
     dst_path = os.path.abspath(directory)
     tempdir.copy_files(template_names, dst_path)
     success_message(dst_path)
+    tempdir.remove()
 
 
 def generate(template_names, context):
