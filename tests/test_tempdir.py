@@ -28,6 +28,19 @@ class TestMake(unittest.TestCase):
         assert os.path.isdir(tempdir.path)
 
 
+class TestRemove(object):
+    def test_removes_file_that_has_name_of_tempdir(self):
+        open(tempdir.dirname, 'w').close()
+        assert os.path.isfile(tempdir.path)
+        tempdir.remove()
+        assert not os.path.exists(tempdir.path)
+
+    def test_removes_tempdir(self):
+        tempdir.make()
+        tempdir.remove()
+        assert not os.path.exists(tempdir.path)
+
+
 class TestCopyFiles(unittest.TestCase):
     def setUp(self):
         self.dst_dir = os.path.abspath('dst_dir')
