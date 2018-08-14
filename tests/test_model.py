@@ -2,17 +2,8 @@ import unittest
 from click.testing import CliRunner
 from dgen import cli
 
+
 COMMAND = 'model'
-
-RESULT = """class MyModel(models.Model):
-    class Meta:
-        verbose_name = _('MyModel')
-        verbose_name_plural = _('MyModels')
-        ordering = ['id']
-
-    def __str__(self):
-        return f'MyModel{self.id}'
-"""
 
 
 class TestCommand(unittest.TestCase):
@@ -23,4 +14,20 @@ class TestCommand(unittest.TestCase):
     def test_output(self):
         result = self.runner.invoke(cli.main, [COMMAND])
         assert result.exit_code == 0
-        assert result.output == RESULT
+        assert 'class MyModel(models.Model)' in result.output
+
+
+class TestNameOption(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        cls.runner = CliRunner()
+
+    def test_option(self):
+        result = self.runner.invoke(cli.main, [COMMAND, '--name=Recipe'])
+        assert result.exit_code == 0
+        assert 'class Recipe(models.Model)' in result.output
+
+    def test_option_short(self):
+        result = self.runner.invoke(cli.main, [COMMAND, '-nCompany'])
+        assert result.exit_code == 0
+        assert 'class Company(models.Model)' in result.output

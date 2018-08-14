@@ -6,6 +6,7 @@ from dgen import jinja
 env = jinja.create_env(PackageLoader(package_name=__package__))
 
 
-def model():
+def model(name):
     template = env.get_template('model.py')
-    click.echo(template.render())
+    context = {'name': name}
+    click.echo(template.render(context))

@@ -34,6 +34,7 @@ def templates(directory, title):
 
 
 @main.command(short_help='Generate Model template.')
-def model():
+@click.option('--name', '-n', default='MyModel', help='Model name.')
+def model(name):
     """Generate common Model template with Meta class and overridden __str__ method."""
-    commands.model()
+    commands.model(name)

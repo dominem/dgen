@@ -1,8 +1,8 @@
-class MyModel(models.Model):
+class [[ name ]](models.Model):
     class Meta:
-        verbose_name = _('MyModel')
-        verbose_name_plural = _('MyModels')
+        verbose_name = _('[[ name ]]')
+        verbose_name_plural = _('[[ name ]]s')
         ordering = ['id']
 
     def __str__(self):
-        return f'MyModel{self.id}'
+        return f'[[ name ]]{self.id}'
