@@ -31,3 +31,9 @@ def templates(directory, title):
     If this is the case, make sure that you have a backup.
     """
     commands.templates(directory, title)
+
+
+@main.command(short_help='Generate Model template.')
+def model():
+    """Generate common Model template with Meta class and overridden __str__ method."""
+    commands.model()

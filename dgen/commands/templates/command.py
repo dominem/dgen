@@ -5,13 +5,13 @@ from dgen import jinja
 from dgen.tempdir import tempdir
 
 
-jinja.env.loader = PackageLoader(package_name=__package__)
+env = jinja.create_env(PackageLoader(package_name=__package__))
 
 
 def templates(directory, title):
     tempdir.make()
     context = {'title': title}
-    template_names = jinja.env.list_templates()
+    template_names = env.list_templates()
     generate(template_names, context)
     dst_path = os.path.abspath(directory)
     tempdir.copy_files(template_names, dst_path)
@@ -22,7 +22,7 @@ def templates(directory, title):
 def generate(template_names, context):
     for template_name in template_names:
         path = os.path.join(tempdir.path, template_name)
-        template = jinja.env.get_template(template_name)
+        template = env.get_template(template_name)
         template.stream(**context).dump(path)
 
 
