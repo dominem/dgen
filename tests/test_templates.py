@@ -17,7 +17,7 @@ TEMPLATES = [f'{t}.html' for t in [
 BASE_TEMPLATE_PATH = f'{TEMPLATES_DIR}/base.html'
 
 
-class TestTemplates(unittest.TestCase):
+class TestCommand(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         cls.runner = CliRunner()
