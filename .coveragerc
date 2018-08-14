@@ -1,0 +1,3 @@
+[run]
+omit =
+    dgen/commands/model/templates/*
