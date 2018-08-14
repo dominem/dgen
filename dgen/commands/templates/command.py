@@ -8,9 +8,9 @@ from dgen.tempdir import tempdir
 jinja.env.loader = PackageLoader(package_name=__package__)
 
 
-def templates(directory):
+def templates(directory, title):
     tempdir.make()
-    context = {'title': 'dgen'}
+    context = {'title': title}
     template_names = jinja.env.list_templates()
     generate(template_names, context)
     dst_path = os.path.abspath(directory)

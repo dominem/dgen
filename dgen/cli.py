@@ -10,7 +10,8 @@ def main():
 
 @main.command(short_help='Generate CMS-like templates.')
 @click.argument('directory')
-def templates(directory):
+@click.option('--title', default='My Project', help='Project title.')
+def templates(directory, title):
     """
     Generate CMS-like generic templates for Index and CRUD Class-Based Views.
 
@@ -29,4 +30,4 @@ def templates(directory):
     in the given DIRECTORY if such files already exist.
     If this is the case, make sure that you have a backup.
     """
-    commands.templates(directory)
+    commands.templates(directory, title)
