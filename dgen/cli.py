@@ -1,5 +1,6 @@
 import click
 from . import commands
+from . import validators
 
 
 @click.group()
@@ -35,6 +36,8 @@ def templates(directory, title):
 
 @main.command(short_help='Generate Model.')
 @click.option('--name', '-n', default='MyModel', help='Model name.')
-def model(name):
+@click.option('--field', '-f', multiple=True, callback=validators.model.validate_field,
+              help='Model field. You can provide multiple -f options.')
+def model(name, field):
     """Generate common Model with Meta class and overridden __str__ method."""
-    commands.model(name)
+    commands.model(name, field)
