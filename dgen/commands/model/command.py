@@ -48,6 +48,11 @@ SLUG_FIELD = """
         verbose_name=_('%s')
     )"""
 
+URL_FIELD = """
+    %s = models.URLField(
+        verbose_name=_('%s')
+    )"""
+
 FIELDS = {
     't': TEXT_FIELD,
     'i': INTEGER_FIELD,
@@ -57,6 +62,7 @@ FIELDS = {
     'time': TIME_FIELD,
     'e': EMAIL_FIELD,
     's': SLUG_FIELD,
+    'url': URL_FIELD,
 }
 
 
