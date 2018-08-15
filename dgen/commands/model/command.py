@@ -22,10 +22,16 @@ BOOLEAN_FIELD = """
         verbose_name=_('%s')
     )"""
 
+DATE_FIELD = """
+    %s = models.DateField(
+        verbose_name=_('%s')
+    )"""
+
 FIELDS = {
     't': TEXT_FIELD,
     'i': INTEGER_FIELD,
-    'b': BOOLEAN_FIELD
+    'b': BOOLEAN_FIELD,
+    'd': DATE_FIELD,
 }
 
 

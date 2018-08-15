@@ -66,6 +66,11 @@ class TestFieldOption(unittest.TestCase):
         assert 'default=False,' in result.output
         assert "verbose_name=_('Is active')" in result.output
 
+    def test_date_field(self):
+        result = self.runner.invoke(cli.main, [COMMAND, '-fd:start_date'])
+        assert 'start_date = models.DateField(' in result.output
+        assert "verbose_name=_('Start date')" in result.output
+
     def test_multiple_fields(self):
         result = self.runner.invoke(cli.main, [COMMAND, '-ft:company_name', '-fi:employee_count'])
         assert 'company_name = models.TextField(' in result.output
