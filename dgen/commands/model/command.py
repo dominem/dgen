@@ -37,6 +37,11 @@ TIME_FIELD = """
         verbose_name=_('%s')
     )"""
 
+EMAIL_FIELD = """
+    %s = models.EmailField(
+        verbose_name=_('%s')
+    )"""
+
 FIELDS = {
     't': TEXT_FIELD,
     'i': INTEGER_FIELD,
@@ -44,6 +49,7 @@ FIELDS = {
     'd': DATE_FIELD,
     'dt': DATETIME_FIELD,
     'time': TIME_FIELD,
+    'e': EMAIL_FIELD,
 }
 
 

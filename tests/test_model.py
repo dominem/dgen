@@ -81,6 +81,11 @@ class TestFieldOption(unittest.TestCase):
         assert 'refresh_time = models.TimeField(' in result.output
         assert "verbose_name=_('Refresh time')" in result.output
 
+    def test_email_field(self):
+        result = self.runner.invoke(cli.main, [COMMAND, '-fe:email'])
+        assert 'email = models.EmailField(' in result.output
+        assert "verbose_name=_('Email')" in result.output
+
     def test_multiple_fields(self):
         result = self.runner.invoke(cli.main, [COMMAND, '-ft:company_name', '-fi:employee_count'])
         assert 'company_name = models.TextField(' in result.output
