@@ -97,6 +97,14 @@ class TestFieldOption(unittest.TestCase):
         assert 'image_url = models.URLField(' in result.output
         assert "verbose_name=_('Image url')" in result.output
 
+    def test_uuid_field(self):
+        result = self.runner.invoke(cli.main, [COMMAND, '-fuuid:uuid'])
+        assert 'uuid = models.UUIDField(' in result.output
+        assert 'unique=True,' in result.output
+        assert 'default=uuid.uuid4,' in result.output
+        assert 'editable=False,' in result.output
+        assert "verbose_name=_('Uuid')" in result.output
+
     def test_multiple_fields(self):
         result = self.runner.invoke(cli.main, [COMMAND, '-ft:company_name', '-fi:employee_count'])
         assert 'company_name = models.TextField(' in result.output

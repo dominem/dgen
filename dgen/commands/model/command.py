@@ -53,6 +53,14 @@ URL_FIELD = """
         verbose_name=_('%s')
     )"""
 
+UUID_FIELD = """
+    %s = models.UUIDField(
+        unique=True,
+        default=uuid.uuid4,
+        editable=False,
+        verbose_name=_('%s')
+    )"""
+
 FIELDS = {
     't': TEXT_FIELD,
     'i': INTEGER_FIELD,
@@ -63,6 +71,7 @@ FIELDS = {
     'e': EMAIL_FIELD,
     's': SLUG_FIELD,
     'url': URL_FIELD,
+    'uuid': UUID_FIELD,
 }
 
 
