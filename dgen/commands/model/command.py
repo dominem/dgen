@@ -42,6 +42,12 @@ EMAIL_FIELD = """
         verbose_name=_('%s')
     )"""
 
+SLUG_FIELD = """
+    %s = models.SlugField(
+        allow_unicode=True,
+        verbose_name=_('%s')
+    )"""
+
 FIELDS = {
     't': TEXT_FIELD,
     'i': INTEGER_FIELD,
@@ -50,6 +56,7 @@ FIELDS = {
     'dt': DATETIME_FIELD,
     'time': TIME_FIELD,
     'e': EMAIL_FIELD,
+    's': SLUG_FIELD,
 }
 
 
