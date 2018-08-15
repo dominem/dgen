@@ -27,11 +27,17 @@ DATE_FIELD = """
         verbose_name=_('%s')
     )"""
 
+DATETIME_FIELD = """
+    %s = models.DateTimeField(
+        verbose_name=_('%s')
+    )"""
+
 FIELDS = {
     't': TEXT_FIELD,
     'i': INTEGER_FIELD,
     'b': BOOLEAN_FIELD,
     'd': DATE_FIELD,
+    'dt': DATETIME_FIELD,
 }
 
 

@@ -71,6 +71,11 @@ class TestFieldOption(unittest.TestCase):
         assert 'start_date = models.DateField(' in result.output
         assert "verbose_name=_('Start date')" in result.output
 
+    def test_datetime_field(self):
+        result = self.runner.invoke(cli.main, [COMMAND, '-fdt:created'])
+        assert 'created = models.DateTimeField(' in result.output
+        assert "verbose_name=_('Created')" in result.output
+
     def test_multiple_fields(self):
         result = self.runner.invoke(cli.main, [COMMAND, '-ft:company_name', '-fi:employee_count'])
         assert 'company_name = models.TextField(' in result.output
