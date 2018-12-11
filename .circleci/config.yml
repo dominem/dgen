@@ -43,7 +43,7 @@ jobs:
           name: run tests
           command: |
             . venv/bin/activate
-            tox
+            tox -c tox_ci.ini
 
       - store_artifacts:
           path: test-reports
