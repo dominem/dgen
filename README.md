@@ -49,4 +49,4 @@ Install in editable mode:
 
 Run tests:
 
-    tox
+    tox -c tox_local.ini
