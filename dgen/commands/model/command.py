@@ -82,9 +82,16 @@ def get_field(ftype, name):
 
 def parse_fields(fields):
     parsed_fields = []
+
     for field in fields:
         parsed_field = get_field(ftype=field[0], name=field[1])
         parsed_fields.append(parsed_field)
+
+    parsed_fields = ''.join(parsed_fields,)
+
+    if parsed_fields:
+        return parsed_fields + '\n'
+
     return parsed_fields
 
 
