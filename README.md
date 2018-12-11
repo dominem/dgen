@@ -45,3 +45,7 @@ Install requirements:
 Install in editable mode:
 
     pip install -e .
+
+Run tests:
+
+    tox
