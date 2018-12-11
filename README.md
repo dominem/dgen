@@ -6,9 +6,42 @@
 Command-line utility for Django code generation.
 
 
+# Install
+
+    pip install dgen
+
+
 # Usage
 
-To use it:
+    dgen --help
 
-    $ dgen --help
 
+# Development
+
+Clone:
+
+    git clone https://github.com/dominem/dgen.git
+
+Change dir:
+
+    cd dgen
+
+Make venv:
+
+    python -m venv venv
+
+Activate venv (Linux / OSX):
+
+    ./venv/bin/activate
+
+Activate venv (Windows):
+
+    .\venv\Scripts\activate.bat
+
+Install requirements:
+
+    pip install -r requirements.txt
+
+Install in editable mode:
+
+    pip install -e .
